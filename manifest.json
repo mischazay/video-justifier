@@ -3,6 +3,14 @@
   "name": "Video Justifier",
   "version": "1.0",
   "description": "Justify videos to the left or right in theatre/fullscreen mode.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@video-justifier",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "permissions": [
     "activeTab",
     "scripting"
