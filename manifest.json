@@ -7,10 +7,15 @@
     "activeTab",
     "scripting"
   ],
+  "icons": {
+    "48": "icon.svg",
+    "96": "icon.svg"
+  },
   "host_permissions": [
     "*://*.youtube.com/*"
   ],
   "action": {
+    "default_icon": "icon.svg",
     "default_popup": "popup.html",
     "default_title": "Justify Video"
   },
