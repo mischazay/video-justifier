@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Video Justifier",
+  "version": "1.0",
+  "description": "Justify videos to the left or right in theatre/fullscreen mode.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://*.youtube.com/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Justify Video"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.youtube.com/watch*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
