@@ -14,6 +14,29 @@
     "default_popup": "popup.html",
     "default_title": "Justify Video"
   },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "commands": {
+    "justify-left": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+Left"
+      },
+      "description": "Justify video to the left"
+    },
+    "justify-centre": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+Down"
+      },
+      "description": "Justify video to the centre"
+    },
+    "justify-right": {
+      "suggested_key": {
+        "default": "Ctrl+Alt+Right"
+      },
+      "description": "Justify video to the right"
+    }
+  },
   "content_scripts": [
     {
       "matches": ["*://*.youtube.com/watch*"],
