@@ -23,21 +23,37 @@ function justifyVideo(direction) {
     return;
   }
   
-  const videoSelector = 'video.html5-main-video'; // Main video element in YouTube
+  // Config for different site layouts
+  const justifyRules = [
+    {
+      // Absolute position (YouTube)
+      // YouTube uses explicit left/top positioning on the element itself.
+      selectors: ['video.html5-main-video'],
+      left: 'left: 0px !important; right: auto !important;',
+      right: 'left: auto !important; right: 0px !important;'
+    },
+    {
+      // Full frame containment (Twitch)
+      // Twitch sets the element to 100% width/height and centres
+      // :not() prevents this rule from interfering with YouTube's player.
+      selectors: ['video:not(.html5-main-video)'],
+      left: 'object-position: left center !important;',
+      right: 'object-position: right center !important;'
+    },
+    {
+      // Flexbox centred wrapper (Kick)
+      selectors: ['#injected-embedded-channel-player-video'],
+      left: 'justify-content: flex-start !important;',
+      right: 'justify-content: flex-end !important;'
+    }
+  ];
   
   let css = '';
-  if (direction === 'left') {
-    css = `
-      ${videoSelector} {
-        left: 0px !important;
-        right: auto !important;
-      }
-    `;
-  } else if (direction === 'right') {
-    css = `
-      ${videoSelector} {
-        left: auto !important;
-        right: 0px !important;
+  for (const rule of justifyRules) {
+    const combinedSelectors = rule.selectors.join(', ');
+    css += `
+      ${combinedSelectors} {
+        ${direction === 'left' ? rule.left : rule.right}
       }
     `;
   }

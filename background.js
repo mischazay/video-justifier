@@ -8,7 +8,8 @@ browser.commands.onCommand.addListener(async (command) => {
     try {
       const tabs = await browser.tabs.query({ active: true, currentWindow: true });
       const activeTab = tabs[0];
-      if (activeTab && activeTab.url.includes("youtube.com/watch")) {
+      if (activeTab && activeTab.url) {
+        // Rely on manifest.json to inject content.js on supported sites, if content.js is not present, this safely catches the error
         await browser.tabs.sendMessage(activeTab.id, { action: "justifyVideo", direction: direction });
       }
     } catch (error) {

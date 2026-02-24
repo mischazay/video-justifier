@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     try {
       const tabs = await browser.tabs.query({ active: true, currentWindow: true });
       const activeTab = tabs[0];
-      if (activeTab && activeTab.url.includes("youtube.com/watch")) {
+      if (activeTab && activeTab.url) {
+        // Send message blindly, if site is supported, manifest.json will have injected content.js, which will receive and handle the message
         await browser.tabs.sendMessage(activeTab.id, { action: "justifyVideo", direction: direction });
-      } else {
-        console.error("Not a YouTube video page.");
       }
     } catch (error) {
       console.error("Error sending message:", error);
