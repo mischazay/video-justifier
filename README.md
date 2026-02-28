@@ -2,6 +2,12 @@
 
 A lightweight Firefox extension designed mainly for multi-monitor setups. When a video is playing in theatre mode or fullscreen mode, this extension allows you to shift the video frame to the left or right, rather than the default centre, replacing the default black bars. This is done by overriding the site's default CSS positioning rules, foregoing the need for complex JavaScript tracking.
 
+## Installation
+
+You can install Video Justifier from the official Firefox Add-ons store
+
+[<img src="https://blog.mozilla.org/addons/files/2020/04/get-the-addon-fx-apr-2020.svg" alt="Firefox get the addon" height="60px">](https://addons.mozilla.org/firefox/addon/video-justifier/)
+
 ## Supported Platforms
 - **YouTube**
 - **Twitch.tv**
